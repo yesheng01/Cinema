@@ -6,13 +6,15 @@
  * Date : 18/01/2021
  * Description:
  **/
+
 public class Cinema {
     /*Atributos*/
     private Asientos asientos[][];
-    private double precio;
+    private int precio;
+    private int balance;
     private Pelicula Pelicula;
 
-    public Cinema(int filas , int columnas, double precio, Pelicula pelicula) {
+    public Cinema(int filas , int columnas, int precio, Pelicula pelicula) {
         asientos = new Asientos [filas][columnas];
         this.precio = precio;
         this.Pelicula = pelicula;
@@ -31,7 +33,7 @@ public class Cinema {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
@@ -41,6 +43,12 @@ public class Cinema {
 
     public void setPelicula(Pelicula pelicula) {
         Pelicula = pelicula;
+    }
+    public int getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance += balance;
     }
     private void rellenarbutacas() {
 

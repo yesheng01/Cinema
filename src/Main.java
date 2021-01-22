@@ -9,9 +9,11 @@
 import java.util.Scanner;
 public class Main {
         public static void main(String[] args) {
-
+            long tStart,tEnd,tTotal;
+            tStart=System.currentTimeMillis();
+            //Creamos la pelicula a reproducir
             //Creo la pelicula
-            Pelicula pelicula = new Pelicula("Mi vida", 90, 16, "DDR");
+            Pelicula pelicula = new Pelicula("Wonder Woman", 150, 16, "Patty Jenkins");
 
             // Pido datos (esto no se mostro en el video por falta de tiempo)
             // No valida nada al respecto de tamaños (siguiente version)
@@ -24,7 +26,7 @@ public class Main {
             int columnas=sn.nextInt();
 
             System.out.println("Introduce el precio de la entrada de cine");
-            double precio=sn.nextDouble();
+            int precio=sn.nextInt();
 
             //Creo el cine, necesito la pelicula para ello
             Cinema cine = new Cinema(filas, columnas, precio, pelicula);
@@ -45,7 +47,7 @@ public class Main {
                 //Generamos un espectador
                 e = new Espectador(
                         Metodos.nombres[Metodos.generaNumeroEnteroAleatorio(0, Metodos.nombres.length - 1)], //Nombre al azar
-                        Metodos.generaNumeroEnteroAleatorio(10, 30), //Generamos una edad entre 10 y 30
+                        Metodos.generaNumeroEnteroAleatorio(7, 35), //Generamos una edad entre 7 y 35
                         Metodos.generaNumeroEnteroAleatorio(1, 10)); //Generamos el dinero entre 1 y 10 euros
 
                 //Mostramos la informacion del espectador
@@ -60,17 +62,21 @@ public class Main {
 
                 } while (cine.haySitioButaca(fila, letra));
 
+
                 //Si el espectador cumple con las condiciones
                 if (cine.sePuedeSentar(e)) {
                     e.pagar(cine.getPrecio()); //El espectador paga el precio de la entrada
+                    cine.setBalance(cine.getPrecio());
                     cine.sentar(fila, letra, e); //El espectador se sienta
                 }
 
             }
-
             System.out.println("");
             cine.mostrar(); //Mostramos la información del cine, tambien se puede usar un toString
-
+            System.out.println("Total dinero ganado: "+cine.getBalance()+"€");
+            tEnd=System.currentTimeMillis();
+            tTotal=tEnd-tStart;
+            System.out.println("Tiempo de ejecución total: "+tTotal + "miliseg");
             System.out.println("Fin");
 
         }
