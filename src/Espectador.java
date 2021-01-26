@@ -8,19 +8,55 @@
  **/
 public class Espectador {
 
-    /*Atributos*/
+    //Atributos
     private String nombre;
     private int edad;
     private double dinero;
 
-    /*Constructores*/
+    //Constructor
     public Espectador(String nombre, int edad, double dinero) {
         this.nombre = nombre;
         this.edad = edad;
         this.dinero = dinero;
     }
 
-    /*Metodos*/
+    //Metodos
+
+    //Metodo de saber si pagas la entrada de la pelicula y entonces se bajara el coste del dinero que tienes
+
+    public void pagar(double precio) {
+        dinero -= precio;
+    }
+
+    //
+    //Indicamos si el espectador tiene edad para ver la pelicula
+    //
+    //
+
+    public boolean tieneEdad(int edadMinima) {
+        return edad >= edadMinima;
+    }
+
+       //
+      // Indicamos si el espectador tiene dinero
+     //
+
+    public boolean tieneDinero(double precioEntrada) {
+        return dinero >= precioEntrada;
+    }
+
+
+    //
+    //toString que luego saldra un print para que cuando luego se ejecute el main salgan esto
+    //
+
+    public String toString() {
+        return "el nombre de los espectadores que hay  son " + nombre + " de " + edad + " años  y tienen " + dinero + " euros ";
+    }
+
+
+    //Getters and Setters
+
     public String getNombre() {
         return nombre;
     }
@@ -43,43 +79,6 @@ public class Espectador {
 
     public void setDinero(double dinero) {
         this.dinero = dinero;
-    }
-
-    /**
-     * Pagamos la entrada del cine
-     *
-     * @param precio
-     */
-    public void pagar(double precio) {
-        dinero -= precio;
-    }
-
-    /**
-     * Indicamos si el espectador tiene edad para ver la pelicula (en el video
-     * estaba en la clase pelicula tiene mas sentido que sea un metodo del
-     * espectador)
-     *
-     * @param edadMinima
-     * @return
-     */
-    public boolean tieneEdad(int edadMinima) {
-        return edad >= edadMinima;
-    }
-
-    /**
-     * Indicamos si el espectador tiene dinero (en el video estaba en la clase
-     * cine tiene mas sentido que sea un metodo del espectador)
-     *
-     * @param precioEntrada
-     * @return
-     */
-    public boolean tieneDinero(double precioEntrada) {
-        return dinero >= precioEntrada;
-    }
-
-    @Override
-    public String toString() {
-        return "el nombre del espectador es " + nombre + " de " + edad + " años y con " + dinero + " euros en su bolsillo";
     }
 
 }

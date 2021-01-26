@@ -6,34 +6,21 @@
  * Date : 20/01/2021
  * Description:
  **/
-import java.util.Scanner;
 public class Main {
         public static void main(String[] args) {
+
+            //Atributo para el tiempo de ejecucion en milisegundos
+
             long tStart,tEnd,tTotal;
             tStart=System.currentTimeMillis();
+
+
             //Creamos la pelicula a reproducir
-            //Creo la pelicula
             Pelicula pelicula = new Pelicula("Wonder Woman", 150, 16, "Patty Jenkins");
 
-            // Pido datos (esto no se mostro en el video por falta de tiempo)
-            // No valida nada al respecto de tamaños (siguiente version)
-            Scanner sn = new Scanner(System.in);
-
-            System.out.println("Introduce el numero de filas");
-            int filas=sn.nextInt();
-
-            System.out.println("Introduce el numero de columnas");
-            int columnas=sn.nextInt();
-
-            System.out.println("Introduce el precio de la entrada de cine");
-            int precio=sn.nextInt();
-
             //Creo el cine, necesito la pelicula para ello
-            Cinema cine = new Cinema(filas, columnas, precio, pelicula);
+            Cinema cine = new Cinema(8, 9 , 4,pelicula);
 
-            //Numero de espectadores que seran creados
-            System.out.println("Introduce el numero de espectadores a crear");
-            int numEspectadores = sn.nextInt();
 
             //Variables y objetos usados
             Espectador e;
@@ -42,12 +29,11 @@ public class Main {
 
             System.out.println("Espectadores generados: ");
             //Termino cuando no queden espectadores o no haya mas sitio en el cine
-            for (int i = 0; i < numEspectadores && cine.haySitio() ; i++) {
-
+            while (cine.sitio()) {
                 //Generamos un espectador
                 e = new Espectador(
                         Metodos.nombres[Metodos.generaNumeroEnteroAleatorio(0, Metodos.nombres.length - 1)], //Nombre al azar
-                        Metodos.generaNumeroEnteroAleatorio(7, 35), //Generamos una edad entre 7 y 35
+                        Metodos.generaNumeroEnteroAleatorio(7, 20), //Generamos una edad entre 7 y 20
                         Metodos.generaNumeroEnteroAleatorio(1, 10)); //Generamos el dinero entre 1 y 10 euros
 
                 //Mostramos la informacion del espectador
@@ -60,7 +46,7 @@ public class Main {
                     fila = Metodos.generaNumeroEnteroAleatorio(0, cine.getFilas() - 1);
                     letra = (char) Metodos.generaNumeroEnteroAleatorio('A', 'A' + (cine.getColumnas()-1));
 
-                } while (cine.haySitioButaca(fila, letra));
+                } while (cine.tieneSitioButaca(fila, letra));
 
 
                 //Si el espectador cumple con las condiciones
@@ -71,12 +57,16 @@ public class Main {
                 }
 
             }
-            System.out.println("");
             cine.mostrar(); //Mostramos la información del cine, tambien se puede usar un toString
             System.out.println("Total dinero ganado: "+cine.getBalance()+"€");
+
+           //Da el tiempo de ejecucion y lo mostramos en un sout
             tEnd=System.currentTimeMillis();
             tTotal=tEnd-tStart;
             System.out.println("Tiempo de ejecución total: "+tTotal + "miliseg");
+
+            //Acaba
+
             System.out.println("Fin");
 
         }

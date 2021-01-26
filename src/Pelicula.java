@@ -7,10 +7,16 @@
  * Description:
  **/
 public class Pelicula {
+
+
+        //Atributos
+
         private String titulo;
         private int duracion;
         private String director;
         private int minEdad;
+
+        //Constructor
 
         public Pelicula(String titulo , int duracion , int minEdad , String director){
             this.titulo = titulo;
@@ -20,6 +26,7 @@ public class Pelicula {
         }
 
 
+    //Getters and Setters
 
     public String getTitulo() {
         return titulo;
@@ -52,7 +59,13 @@ public class Pelicula {
     public void setMinEdad(int minEdad) {
         this.minEdad = minEdad;
     }
+
+
+    //Se le pasa un toString para que se muestre las informaciones del titulo de la pelicula , el director , lo que dura y la edad minima
+
+
     public String toString() {
-        return "'" + titulo + "' del director " + director + ", con una duracion de " + duracion + " minutos y la edad minima es de " + minEdad + " años";
+        return "'" + titulo + "' del director " + director + "," +
+                " con una duracion de " + duracion + " minutos y la edad minima es de " + minEdad + " años";
     }
 }

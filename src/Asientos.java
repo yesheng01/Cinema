@@ -7,19 +7,25 @@
  * Description:
  **/
 public class Asientos {
-        /*Atributos*/
+
+        //Atributos
+
         private char letra;
         private int fila;
         private Espectador espectador; // informacion del espectador que esta sentado, null si es vacio
 
-        /*Constructores*/
+        //constructor
+
         public Asientos(char letra, int fila) {
             this.letra = letra;
             this.fila = fila;
             this.espectador = null; //al iniciar el asiento, no habrá nadie sentado
         }
 
-        /*Metodos*/
+        //Metodos
+
+        //Getters and Setters
+
         public char getLetra() {
             return letra;
         }
@@ -44,16 +50,20 @@ public class Asientos {
             this.espectador = espectador;
         }
 
-        /**
-         * Indica si el asiento esta ocupado
-         *
-         * @return
-         */
+
+        //Otros metodos
+
+        //
+        //Indica si el asiento esta ocupado
+        //
+
         public boolean ocupado() {
             return espectador != null;
         }
 
-        @Override
+
+        //Le pasamos un toString donde saldra el mensaje de que si los asientos se llenan o no se llenan y esto saldra en el main
+
         public String toString() {
             if (ocupado()) {
                 return "Asiento: " + fila + letra + " y " + espectador;
