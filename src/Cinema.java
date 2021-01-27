@@ -59,7 +59,7 @@ public class Cinema {
     }
 
     //
-    // Indico si en una posicion concreta esta ocupada
+    // Indicamos si en una posicion concreta esta ocupada
     //
 
     public boolean tieneSitioButaca(int fila, char letra) {
@@ -68,12 +68,12 @@ public class Cinema {
 
 
      //Indicamos si el espectador cumple lo necesario para entrar:
-    // Tiene dinero
-    // Tiene edad El tema de si hay sitio.
+    // Si tiene dinero
+    // Si tiene edad El tema de si hay sitio.
     // Y se funciona en el Main
 
     public boolean sePuedeSentar(Espectador e) {
-        return e.tieneDinero(precio) && e.tieneEdad(Pelicula.getMinEdad());
+        return e.tieneDinero(precio) && e.tieneEdad(Pelicula.getMinimoEdad());
     }
 
     //
@@ -83,7 +83,8 @@ public class Cinema {
         getAsiento(fila, letra).setEspectador(e);
     }
 
-     //  Se devuelve en un asiento concreto por su fila y letra al que le va asignando  y que en ella ira bajando los numero y tambien las letras en el return
+     //  Se devuelve en un asiento concreto por su fila y letra al que le va asignando
+     //  y que en ella ira bajando los numeros y tambien las letras en el return
     public Asientos getAsiento(int fila, char letra) {
         return asientos[asientos.length - fila - 1][letra - 'A'];
     }
@@ -101,8 +102,18 @@ public class Cinema {
         return asientos[0].length;
     }
 
+    //Coge el balance que sea recaudado
 
-     //Mostramos la información de nuestro cine , la pelicula que reproduciremos y el precio de la entrada que seria.
+    public int getBalance() {
+        return balance;
+    }
+    public void setBalance(double balance) {
+        this.balance += balance;
+    }
+
+
+     //Mostramos la información de nuestro cine , la pelicula que reproduciremos y
+    // el precio de la entrada que seria.
 
     public void mostrar() {
 
@@ -148,12 +159,4 @@ public class Cinema {
         Pelicula = pelicula;
     }
 
-    //Coge el balance que sea recaudado
-
-    public int getBalance() {
-        return balance;
-    }
-    public void setBalance(double balance) {
-        this.balance += balance;
-    }
 }

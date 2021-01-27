@@ -9,14 +9,11 @@
 public class Main {
         public static void main(String[] args) {
 
-            //Atributo para el tiempo de ejecucion en milisegundos
-
             long tStart,tEnd,tTotal;
             tStart=System.currentTimeMillis();
 
-
             //Creamos la pelicula a reproducir
-            Pelicula pelicula = new Pelicula("Wonder Woman", 150, 16, "Patty Jenkins");
+            Pelicula pelicula = new Pelicula("Wonder Woman", "Patty Jenkins",  150, 16);
 
             //Creo el cine, necesito la pelicula para ello
             Cinema cine = new Cinema(8, 9 , 4,pelicula);
@@ -27,7 +24,7 @@ public class Main {
             int fila;
             char letra;
 
-            System.out.println("Espectadores generados: ");
+            System.out.println("Espectadores que se han generado: ");
             //Termino cuando no queden espectadores o no haya mas sitio en el cine
             while (cine.sitio()) {
                 //Generamos un espectador

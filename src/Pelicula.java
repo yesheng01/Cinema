@@ -14,15 +14,15 @@ public class Pelicula {
         private String titulo;
         private int duracion;
         private String director;
-        private int minEdad;
+        private int minimoEdad;
 
         //Constructor
 
-        public Pelicula(String titulo , int duracion , int minEdad , String director){
+        public Pelicula(String titulo , String director ,  int duracion , int minimoEdad){
             this.titulo = titulo;
             this.duracion = duracion;
             this.director = director;
-            this.minEdad = minEdad;
+            this.minimoEdad = minimoEdad;
         }
 
 
@@ -52,20 +52,21 @@ public class Pelicula {
         this.director = director;
     }
 
-    public int getMinEdad() {
-        return minEdad;
+    public int getMinimoEdad() {
+        return minimoEdad;
     }
 
     public void setMinEdad(int minEdad) {
-        this.minEdad = minEdad;
+        this.minimoEdad = minEdad;
     }
 
 
-    //Se le pasa un toString para que se muestre las informaciones del titulo de la pelicula , el director , lo que dura y la edad minima
+    //Se le pasa un toString para que se muestre las informaciones del titulo de la pelicula ,
+    // el director , lo que dura y la edad minima
 
 
     public String toString() {
         return "'" + titulo + "' del director " + director + "," +
-                " con una duracion de " + duracion + " minutos y la edad minima es de " + minEdad + " años";
+                " con una duracion de " + duracion + " minutos y la edad minima es de " + minimoEdad + " años";
     }
 }

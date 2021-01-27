@@ -51,7 +51,8 @@ public class Espectador {
     //
 
     public String toString() {
-        return "el nombre de los espectadores que hay  son " + nombre + " de " + edad + " años  y tienen " + dinero + " euros ";
+        return "el nombre de los espectadores que hay  son " + nombre +
+                " de " + edad + " años  y tienen " + dinero + " euros ";
     }
 
 

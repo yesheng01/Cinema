@@ -12,7 +12,7 @@ public class Asientos {
 
         private char letra;
         private int fila;
-        private Espectador espectador; // informacion del espectador que esta sentado, null si es vacio
+        private Espectador espectador; // informacion del espectador que se sienta y null si es vacio
 
         //constructor
 
@@ -23,6 +23,26 @@ public class Asientos {
         }
 
         //Metodos
+    //
+    //Indica si el asiento esta ocupado
+    //
+
+    public boolean ocupado() {
+        return espectador != null;
+    }
+
+
+    //Le pasamos un toString donde saldra el mensaje de que si los asientos se llenan o no se llenan y
+    // esto saldra en el main
+
+    public String toString() {
+        if (ocupado()) {
+            return "Asiento: " + fila + letra + " y " + espectador;
+        }
+
+        return "Asiento: " + fila + letra + " y este asiento está vacio ";
+
+    }
 
         //Getters and Setters
 
@@ -50,27 +70,5 @@ public class Asientos {
             this.espectador = espectador;
         }
 
-
-        //Otros metodos
-
-        //
-        //Indica si el asiento esta ocupado
-        //
-
-        public boolean ocupado() {
-            return espectador != null;
-        }
-
-
-        //Le pasamos un toString donde saldra el mensaje de que si los asientos se llenan o no se llenan y esto saldra en el main
-
-        public String toString() {
-            if (ocupado()) {
-                return "Asiento: " + fila + letra + " y " + espectador;
-            }
-
-            return "Asiento: " + fila + letra + " y este asiento está vacio ";
-
-        }
 
     }
